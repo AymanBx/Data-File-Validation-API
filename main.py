@@ -1,4 +1,5 @@
 import sys
+import os
 
 usage_statement = "Usage\n\tmain.py <DataFile Name> <SpecFile Name>\n"
 
@@ -19,3 +20,9 @@ data_file = arguments[1]
 print("data file:", data_file)
 spec_file = arguments[2]
 print("spec file:", spec_file, "\n")
+
+if (not os.path.exists(data_file)) or (not os.path.exists(spec_file)) :
+    print("One of the files doesn't exist----hint: could be a typo in the file name.")
+    exit(0)
+# else:
+#     print("Check!")
