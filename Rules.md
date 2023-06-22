@@ -1,5 +1,6 @@
 ## TODOs
 * Plan on extracting the validation rules from the JSON file
+* Determain how many modules we need (main, read_specs, read_data?....)
 * Fix the naming within the JSON file (switched name to parameter)
 * Order the parameters within "column" based on the maxient doc?
 * Consider empty pipes.
