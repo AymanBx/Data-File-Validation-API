@@ -1,0 +1,92 @@
+[
+	{
+   		"fileFormat": {
+			"format": "delimited records",
+			"delimited": "|"
+		}
+	},
+
+	{
+		"columns": [
+			{
+				"parameter": "brownId",
+				"type": "string",
+				"maxLength": "15"
+			},
+
+			{
+				"parameter": "username",
+				"type": "string",
+				"maxLength": "30"
+			},
+
+			{
+				"parameter": "firstName",
+				"type": "string",
+				"maxLength": "50"
+			},
+
+			{
+				"parameter": "middleInit",
+				"type": "string",
+				"maxLength": "1"
+			},
+
+			{
+				"parameter": "lastName",
+				"type": "string",
+				"maxLength": "50"
+			},
+
+			{
+				"parameter": "preferredName",
+				"type": "string",
+				"maxLength": "50"
+			},
+
+			{
+				"parameter": "localAddress",
+				"type": "string",
+				"maxLength": "50"
+			},
+
+			{
+				"parameter": "localCity",
+				"type": "string",
+				"maxLength": "50"
+			},
+
+			{
+				"parameter": "localState",
+				"type": "string",
+				"maxLength": "2"
+			},
+
+			{
+				"parameter": "localZip",
+				"type": "string",
+				"maxLength": "50"
+			},
+
+			{
+				"parameter": "dob",
+				"type": "date",
+				"maxLength": "10",
+				"format": ""
+			},
+
+			{
+				"parameter": "email",
+				"type": "string",
+				"maxLength": "100"
+			},
+
+			{
+				"parameter": "academicUnit",
+				"type": "string",
+				"maxLength": "50"
+			}
+		]
+	}
+
+]
