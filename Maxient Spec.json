@@ -2,7 +2,7 @@
 	{
    		"fileFormat": {
 			"format": "delimited records",
-			"delimited": "|"
+			"delimiter": "|"
 		}
 	},
 
