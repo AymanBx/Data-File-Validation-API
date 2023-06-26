@@ -1,6 +1,7 @@
 import sys
 import os
 
+# Usage statment can be printed to user in case of an error in passing arguments
 usage_statement = "Usage\n\tmain.py <DataFile Name> <SpecFile Name>\n"
 
 
