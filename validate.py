@@ -24,10 +24,10 @@ def validate_file(data_file, spec_file):
     for record in (extracted.values()):
         for param in range(len(record)):
             if type(record[param]) != specs.get(param)[1]:
-                print("error!!!")
+                print("Well,", record[param], "failed type test!")
             else:
                 print("SO,", record[param], "passed type test!")
             if len(record[param]) > specs.get(param)[2]:
-                print("error2!!!")
+                print("Well,", record[param], "failed length test!")
             else:
                 print("SO,", record[param], "passed length test!")
