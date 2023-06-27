@@ -2,4 +2,5 @@
 *.txt
 testin.txtt
 *.json
+*.pdf
 __pycache__/
