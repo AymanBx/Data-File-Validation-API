@@ -1,13 +1,12 @@
 [
 	{
-   		"fileFormat": {
-			"format": "delimited records",
-			"delimiter": "|"
-		}
+        "format": "delimited records",
+		"delimiter": "|",
+        "test": "test"
 	},
 
 	{
-		"columns": [
+		"parameters": [
 			{
 				"parameter": "brownId",
 				"type": "string",
