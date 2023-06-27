@@ -16,8 +16,8 @@ data_file = sys.argv[1]
 spec_file = sys.argv[2]
 
 # print("files:", len(sys.argv)-1)
-print("data file:", data_file)
-print("spec file:", spec_file, "\n")
+print(f"data file: {data_file}")
+print(f"spec file: {spec_file}\n")
  
 
 # Check that input files exist and are of the correct types
