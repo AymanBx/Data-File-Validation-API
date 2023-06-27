@@ -1,6 +1,5 @@
 *.json
 *.txt
-testin.txtt
-*.json
 *.pdf
+*.txtt
 __pycache__/

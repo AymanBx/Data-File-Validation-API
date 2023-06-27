@@ -11,13 +11,13 @@ def validate_file(data_file, spec_file):
    
     # Validate data
     # !!! Need to make it more abstract in validating different specs
+    # print(specs)
     print("\n\nIN VALIDATION")
     for record in data:
-        print(record)
-        print(specs)
-        print(f"Spec keys: {specs.keys()}")
+        # print(record)
+        # print(f"Spec keys: {specs.keys()}")
         for param in specs.keys():
-            print(f"Param(key): {param}")
+            # print(f"Param(key): {param}")
             if record.get(param) == None or type(record.get(param)) != specs.get(param)[1]:
                 print("Well,", record.get(param), "failed type test!")
             # else:
@@ -26,7 +26,7 @@ def validate_file(data_file, spec_file):
                 print("Well,", record.get(param), "failed length test!")
             # else:
                 # print("SO,", record.get(param), "passed length test!")
-            print()
+            # print()
 
                 
 
@@ -49,7 +49,7 @@ def read_data(data_file):
                 continue
             record.update({field_index:field})
         processed_data.append(record)
-        print(record)
+        # print(record)
     
     print(f"Processed {record_count} records")
     return processed_data
