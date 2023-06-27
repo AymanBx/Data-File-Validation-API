@@ -11,3 +11,4 @@
 * The data is in a list []
 * The first item of the list describes the format of the data.
 * The second item of the list lists the parameters that we're checking against.
+* Each parameter has an index field.

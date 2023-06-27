@@ -11,19 +11,22 @@ def validate_file(data_file, spec_file):
    
     # Validate data
     # !!! Need to make it more abstract in validating different specs
-    for record in (data):
-        record_range = len(record.values())
-        if len(specs.keys()) != len(record):
-            record_range = len(specs.keys())
-        for param in range(record_range):
-            if type(record[param]) != specs.get(param)[1]:
-                print("Well,", record[param], "failed type test!")
+    print("\n\nIN VALIDATION")
+    for record in data:
+        print(record)
+        print(specs)
+        print(f"Spec keys: {specs.keys()}")
+        for param in specs.keys():
+            print(f"Param(key): {param}")
+            if record.get(param) == None or type(record.get(param)) != specs.get(param)[1]:
+                print("Well,", record.get(param), "failed type test!")
             # else:
-                # print("SO,", record[param], "passed type test!")
-            if len(record[param]) > specs.get(param)[2]:
-                print("Well,", record[param], "failed length test!")
+                # print("SO,", record.get(param), "passed type test!")
+            if record.get(param) == None or len(record.get(param)) > specs.get(param)[2]:
+                print("Well,", record.get(param), "failed length test!")
             # else:
-                # print("SO,", record[param], "passed length test!")
+                # print("SO,", record.get(param), "passed length test!")
+            print()
 
                 
 

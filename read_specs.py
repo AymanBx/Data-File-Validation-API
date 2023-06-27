@@ -20,17 +20,18 @@ def read_specs(json_file):
     print()
 
     parameters = {}
-    for num in range (0,parameters_count):
-        parameter_name = columns[num]['parameter']
-        parameter_type = columns[num]['type']
+    for param in columns:
+        parameter_index = param['index']
+        parameter_name = param['parameter']
+        parameter_type = param['type']
         if parameter_type == "string" or parameter_type == "str":
             parameter_type = str
         elif parameter_type == "num" or parameter_type == "number" or parameter_type == "int":
             parameter_type = int
         elif parameter_type == "date":
             parameter_type = date
-        parameter_length = int(columns[num]['maxLength'])
-        parameters.update({num:[parameter_name, parameter_type, parameter_length]})
+        parameter_length = int(param['maxLength'])
+        parameters.update({parameter_index:[parameter_name, parameter_type, parameter_length]})
     
     return delimiter, parameters
 
