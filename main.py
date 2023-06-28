@@ -1,6 +1,6 @@
 import sys
 import os
-from read_specs import read_specs
+import json
 from validate import validate_file
 
 # Usage statment can be printed to user in case of an error in passing arguments
@@ -37,9 +37,18 @@ if ((not data_file.endswith(".txt")) or (not spec_file.endswith(".json"))):
 # print("specs read success\n")
 
 # Validate data
-validate_file(data_file, spec_file)
-print("Validation complete!")
+errors = validate_file(data_file, spec_file)
+print("Validation complete!\n")
+
+if len(errors.keys()) > 0:
+        outformatted_content = ",\n".join(["\t" + json.dumps({k: v}) for k, v in errors.items()])
 
 # Create a new output file
-with open("out.json", 'w'):
+with open("out.json", 'w') as output:
+    if outformatted_content:
+        output.write("[\n")
+        output.write(outformatted_content)
+        output.write("\n]")
     print("output file created.")
+        
+        

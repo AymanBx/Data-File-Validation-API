@@ -2,6 +2,7 @@ from read_specs import read_specs
 from datetime import datetime, date
 
 date_format = "%Y-%m-%d"
+errors = {}
 
 def validate_file(data_file, spec_file):
     # Read the spec file
@@ -19,7 +20,7 @@ def validate_file(data_file, spec_file):
         # Get the brown ID and check it exists
         keyVar = record.get(1)
         if keyVar == None:
-            print(f"Record number {data.index(record)}, doesn't have a Brown ID!")
+            errors.update({keyVar: "Doesn't have a Brown ID!"})
             continue
 
 
@@ -39,41 +40,43 @@ def validate_file(data_file, spec_file):
                 try:
                     int(field)
                 except ValueError:
-                    print(f"{check_name} value for record {keyVar} isn't all digits.")
+                    errors.update({keyVar: f"{check_name} value isn't all digits."})
             elif check_type == "lInt":
                 for char in field:
                     if not char.isdigit() and char != '-':
-                        print(f"{check_name} value for record {keyVar} can only have digits or dashes in it.")
+                        errors.update({keyVar: f"{check_name} value can only have digits or dashes in it."})
             elif check_type == date:
                 try:
                     datetime.strptime(field, date_format)
                 except ValueError:
-                    print(f"{check_name} value for record {keyVar} is not in correct date format.")
+                    errors.update({keyVar: f"{check_name} value is not in correct date format."})
             elif check_type == str:
                 try:
                     int(field)
-                    print(f"{check_name} value for record {keyVar} needs to have letters in it.")
+                    errors.update({keyVar: f"{check_name} value needs to have letters in it."})
                 except ValueError:
                     True      
             elif check_type == "sString":
                 if any(char.isdigit() for char in field):
-                    print(f"{check_name} value for record {keyVar} can't have digits in it.")
+                    errors.update({keyVar: f"{check_name} value can't have digits in it."})
             elif check_type == "email":
                 if not field.endswith("@brown.edu") and not field.endswith("@brown.eduxx") and not field.endswith("brown.edu"):
-                    print(f"{check_name} value for record {keyVar} not a valild Brrown email.")
+                    errors.update({keyVar: f"{check_name} value not a valild Brrown email."})
                 else:
                     for char in field:
                         if not char.isalpha() and not char.isdigit() and char != '+' and char != '_' and char != '-' and char != '.' and char != '@':
-                            print(f"{check_name} value for record {keyVar} emails can't have weird symbols in them.")
+                            errors.update({keyVar: f"{check_name} value emails can't have weird symbols in them."})
             # else:
                 # print("SO,", record.get(param), "passed type test!")
 
             
             # Length check
             if len(str(field)) > check_len:
-                print(f"{check_name} value for record {keyVar} has failed the length test!")    
+                errors.update({keyVar: f"{check_name} value has failed the length test!"})
             # else:
                 # print("SO,", record.get(param), "passed length test!")
+
+    return errors
 
                 
 
