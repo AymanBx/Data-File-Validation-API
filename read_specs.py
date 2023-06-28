@@ -16,7 +16,7 @@ def read_specs(json_file):
     # Get the number of parameters
     columns = specs[1]['parameters']
     parameters_count = len(columns)
-    print("Number of parameters:", parameters_count)
+    print(f"Number of parameters: {parameters_count}")
     print()
 
     parameters = {}
