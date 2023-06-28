@@ -30,7 +30,6 @@ def read_specs(json_file):
             parameter_type = int
         elif parameter_type == "date":
             parameter_type = date
-        print(parameter_type)
         parameter_length = int(param['maxLength'])
         parameters.update({parameter_index:[parameter_name, parameter_type, parameter_length]})
     
