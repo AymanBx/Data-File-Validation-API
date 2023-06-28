@@ -39,15 +39,32 @@ def validate_file(data_file, spec_file):
                 try:
                     int(field)
                 except ValueError:
-                    print(f"{check_name} value for record {keyVar} failed type test!")
+                    print(f"{check_name} value for record {keyVar} isn't all digits.")
+            elif check_type == "lInt":
+                for char in field:
+                    if not char.isdigit() and char != '-':
+                        print(f"{check_name} value for record {keyVar} can only have digits or dashes in it.")
             elif check_type == date:
                 try:
                     datetime.strptime(field, date_format)
                 except ValueError:
-                    print(f"{check_name} value for record {keyVar} failed type test!")
-            # elif check_type == str:
-            #     if any(char.isdigit() for char in field):
-            #         print(f"{check_name} value for record {keyVar} has digits in it!")             
+                    print(f"{check_name} value for record {keyVar} is not in correct date format.")
+            elif check_type == str:
+                try:
+                    int(field)
+                    print(f"{check_name} value for record {keyVar} needs to have letters in it.")
+                except ValueError:
+                    True      
+            elif check_type == "sString":
+                if any(char.isdigit() for char in field):
+                    print(f"{check_name} value for record {keyVar} can't have digits in it.")
+            elif check_type == "email":
+                if not field.endswith("@brown.edu") and not field.endswith("@brown.eduxx") and not field.endswith("brown.edu"):
+                    print(f"{check_name} value for record {keyVar} not a valild Brrown email.")
+                else:
+                    for char in field:
+                        if not char.isalpha() and not char.isdigit() and char != '+' and char != '_' and char != '-' and char != '.' and char != '@':
+                            print(f"{check_name} value for record {keyVar} emails can't have weird symbols in them.")
             # else:
                 # print("SO,", record.get(param), "passed type test!")
 
@@ -77,7 +94,7 @@ def read_data(data_file, delimiter):
             field_index += 1
             if field == '' or field == 'N/A':
                 continue
-            record.update({field_index:field})
+            record.update({field_index:field.lower()})
         processed_data.append(record)
         # print(record)
     
