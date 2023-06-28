@@ -16,8 +16,8 @@ def read_specs(json_file):
     # Get the number of parameters
     columns = specs[1]['parameters']
     parameters_count = len(columns)
-    print(f"Number of parameters: {parameters_count}")
-    print()
+    print(f"Number of parameters: {parameters_count}\n")
+
 
     parameters = {}
     for param in columns:
@@ -30,6 +30,7 @@ def read_specs(json_file):
             parameter_type = int
         elif parameter_type == "date":
             parameter_type = date
+        print(parameter_type)
         parameter_length = int(param['maxLength'])
         parameters.update({parameter_index:[parameter_name, parameter_type, parameter_length]})
     
