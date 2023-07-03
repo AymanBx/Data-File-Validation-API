@@ -1,0 +1,80 @@
+[
+	{
+        "format": "delimited records",
+		"delimiter": ",",
+		"data file type": "csv",
+		"email xx surround": true,
+		"emails": ["brown.edu", "alum.brown.edu", "gtest.brown.edu"],
+		"allowed symbols": ["'", "`"]
+	},
+
+	{
+		"parameters": [
+			{
+				"index": 1,
+				"parameter": "key",
+				"type": "string",
+				"maxLength": "9"
+			},
+
+			{
+				"index": 2,
+				"parameter": "username",
+				"type": "string",
+				"maxLength": "30"
+			},
+
+			{
+				"index": 4,
+				"parameter": "preferredName",
+				"type": "sString",
+				"maxLength": "50"
+			},
+
+			{
+				"index": 5,
+				"parameter": "middleName",
+				"type": "sString",
+				"maxLength": "50"
+			},
+
+			{
+				"index": 6,
+				"parameter": "lastName",
+				"type": "sString",
+				"maxLength": "50"
+			},
+
+			{
+				"index": 7,
+				"parameter": "firstName",
+				"type": "string",
+				"maxLength": "50"
+			},
+
+			{
+				"index": 8,
+				"parameter": "lastName",
+				"type": "string",
+				"maxLength": "50"
+			},
+
+			{
+				"index": 9,
+				"parameter": "email",
+				"type": "email",
+				"maxLength": "100"
+			},
+
+			{
+				"index": 10,
+				"parameter": "gender",
+				"type": "string",
+				"maxLength": "6"
+			}
+
+				
+		]
+	}
+
+]
