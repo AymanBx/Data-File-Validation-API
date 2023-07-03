@@ -100,6 +100,34 @@
 				"parameter": "academicUnit",
 				"type": "string",
 				"maxLength": "50"
+			},
+
+			{
+				"index": 31,
+				"parameter": "athleticMember",
+				"type": "N/A",
+				"maxLength": "50"
+			},
+
+			{
+				"index": 32,
+				"parameter": "greekMember",
+				"type": "N/A",
+				"maxLength": "50"
+			},
+
+			{
+				"index": 33,
+				"parameter": "honorsMember",
+				"type": "N/A",
+				"maxLength": "20"
+			},
+
+			{
+				"index": 34,
+				"parameter": "ROTC/veteranMember",
+				"type": "N/A",
+				"maxLength": "20"
 			}
 		]
 	}
