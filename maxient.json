@@ -105,7 +105,8 @@
 				"index": 8,
 				"parameter": "gender",
 				"type": "gender",
-				"maxLength": 30
+				"maxLength": 30,
+				"required": false
 			},
 
 			{
