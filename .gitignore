@@ -1,4 +1,5 @@
-*.json
+testin.json
+out.json
 *.txt
 *.pdf
 *.txtt

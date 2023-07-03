@@ -1,0 +1,103 @@
+[
+	{
+        "format": "delimited records",
+		"delimiter": "|"
+	},
+
+	{
+		"parameters": [
+			{
+				"index": 1,
+				"parameter": "brownId",
+				"type": "int",
+				"maxLength": "15"
+			},
+
+			{
+				"index": 2,
+				"parameter": "username",
+				"type": "string",
+				"maxLength": "30"
+			},
+
+			{
+				"index": 4,
+				"parameter": "firstName",
+				"type": "sString",
+				"maxLength": "50"
+			},
+
+			{
+				"index": 5,
+				"parameter": "middleInit",
+				"type": "sString",
+				"maxLength": "1"
+			},
+
+			{
+				"index": 3,
+				"parameter": "lastName",
+				"type": "sString",
+				"maxLength": "50"
+			},
+
+			{
+				"index": 6,
+				"parameter": "preferredName",
+				"type": "string",
+				"maxLength": "50"
+			},
+
+			{
+				"index": 12,
+				"parameter": "localAddress",
+				"type": "string",
+				"maxLength": "50"
+			},
+
+			{
+				"index": 13,
+				"parameter": "localCity",
+				"type": "string",
+				"maxLength": "50"
+			},
+
+			{
+				"index": 14,
+				"parameter": "localState",
+				"type": "string",
+				"maxLength": "2"
+			},
+
+			{
+				"index": 15,
+				"parameter": "localZip",
+				"type": "lInt",
+				"maxLength": "10"
+			},
+
+			{
+				"index": 7,
+				"parameter": "dob",
+				"type": "date",
+				"maxLength": "10",
+				"format": ""
+			},
+
+			{
+				"index": 25,
+				"parameter": "email",
+				"type": "email",
+				"maxLength": "100"
+			},
+
+			{
+				"index": 36,
+				"parameter": "academicUnit",
+				"type": "string",
+				"maxLength": "50"
+			}
+		]
+	}
+
+]
