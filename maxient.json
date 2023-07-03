@@ -15,77 +15,90 @@
 				"index": 1,
 				"parameter": "BrownId",
 				"type": "int",
-				"maxLength": "15"
+				"maxLength": "15",
+				"required": false
 			},
 
 			{
 				"index": 2,
 				"parameter": "username",
 				"type": "string",
-				"maxLength": "30"
+				"maxLength": "30",
+				"required": false
 			},
 
 			{
 				"index": 4,
 				"parameter": "firstName",
-				"type": "string",
-				"maxLength": "50"
+
+				"type": "sString",
+				"maxLength": "50",
+				"required": false
 			},
 
 			{
 				"index": 5,
 				"parameter": "middleInit",
-				"type": "string",
-				"maxLength": "50"
+				"type": "sString",
+				"maxLength": "50",
+				"required": false
 			},
 
 			{
 				"index": 3,
 				"parameter": "lastName",
 				"type": "string",
-				"maxLength": "50"
+				"maxLength": "50",
+				"required": false
+
 			},
 
 			{
 				"index": 6,
 				"parameter": "preferredName",
 				"type": "string",
-				"maxLength": "50"
+				"maxLength": "50",
+				"required": false
 			},
 
 			{
 				"index": 12,
 				"parameter": "localAddress",
 				"type": "string",
-				"maxLength": "50"
+				"maxLength": "50",
+				"required": false
 			},
 
 			{
 				"index": 13,
 				"parameter": "localCity",
 				"type": "string",
-				"maxLength": "50"
+				"maxLength": "50",
+				"required": false
 			},
 
 			{
 				"index": 14,
 				"parameter": "localState",
 				"type": "string",
-				"maxLength": "2"
+				"maxLength": "2",
+				"required": false
 			},
 
 			{
 				"index": 15,
 				"parameter": "localZip",
 				"type": "zip",
-				"maxLength": "10"
+				"maxLength": "10",
+				"required": false
 			},
 
 			{
 				"index": 7,
 				"parameter": "dob",
 				"type": "date",
-				"maxLength": "10"
+				"maxLength": "10",
+				"required": false
 			},
 
 			{
@@ -99,14 +112,48 @@
 				"index": 25,
 				"parameter": "email",
 				"type": "email",
-				"maxLength": "100"
+				"maxLength": "100",
+				"required": false
 			},
 
 			{
 				"index": 36,
 				"parameter": "academicUnit",
 				"type": "string",
-				"maxLength": "50"
+				"maxLength": "50",
+				"required": false
+			},
+
+			{
+				"index": 30,
+				"parameter": "athleticMember",
+				"type": "string",
+				"maxLength": "50",
+				"required": true
+			},
+
+			{
+				"index": 31,
+				"parameter": "greekMember",
+				"type": "string",
+				"maxLength": "50",
+				"required": true
+			},
+
+			{
+				"index": 32,
+				"parameter": "honorsMember",
+				"type": "string",
+				"maxLength": "20",
+				"required": true
+			},
+
+			{
+				"index": 33,
+				"parameter": "ROTC/veteranMember",
+				"type": "string",
+				"maxLength": "20",
+				"required": true
 			}
 		]
 	}
