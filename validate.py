@@ -19,7 +19,7 @@ def validate_file(specs, data):
 
         for param in specs.keys():
             # Get the data value to be validated
-            field = record.get(param)
+            field :str = record.get(param)
             if field == None:
                 continue
 
@@ -53,7 +53,10 @@ def validate_file(specs, data):
                 if any(char.isdigit() for char in field):
                     errors.update({keyVar: f"{check_name} value can't have digits in it."})
             elif check_type == "email":
-                if not field.endswith("@brown.edu") and not field.endswith("@brown.eduxx") and not field.endswith("brown.edu"):
+                if field.startswith("xx") and field.endswith("xx"):
+                    field = field.rstrip("xx")
+                    field = field.replace("xx", "", 1)
+                if not field.endswith("brown.edu"):
                     errors.update({keyVar: f"{check_name} value not a valild Brrown email."})
                 else:
                     for char in field:
