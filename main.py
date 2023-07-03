@@ -32,7 +32,9 @@ if not spec_file.endswith(".json"):
     exit(0)
 
 # Read the spec file
-data_file_type, delimiter, specs = read_specs(spec_file)
+meta_data, specs = read_specs(spec_file)
+delimiter = meta_data[0]
+data_file_type = meta_data[1]
 print("delimiter:", delimiter, "\n")
 
 if not data_file.endswith(f".{data_file_type}"):
@@ -43,7 +45,7 @@ if not data_file.endswith(f".{data_file_type}"):
 data = read_data(data_file, delimiter)
 
 # Validate data
-errors = validate_file(specs, data)
+errors = validate_file(meta_data, specs, data)
 print("Validation complete!\n")
 
 if len(errors.keys()) > 0:
