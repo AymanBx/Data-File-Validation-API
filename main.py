@@ -1,8 +1,8 @@
 import sys
 import os
 import json
-from read_specs import read_specs
-from validate import read_data
+from read_files import read_specs
+from read_files import read_data
 from validate import validate_file
 
 # Usage statment can be printed to user in case of an error in passing arguments

@@ -1,4 +1,3 @@
-from read_specs import read_specs
 from datetime import datetime, date
 
 date_format = "%Y-%m-%d"
@@ -107,31 +106,3 @@ def validate_file(meta_data, specs, data):
                 # print("SO,", record.get(param), "passed length test!")
 
     return errors
-
-                
-
-def read_data(data_file, delimiter):
-    # !!! Might want  to change processed data to a list now (((Done)))
-    processed_data = []
-    with open(data_file, 'r') as file:
-        raw_data = file.read()
-    
-    record_count = 0
-    for line in raw_data.splitlines():
-        record_count += 1
-        record = {}
-
-        field_index = 0
-        for field in line.split(delimiter):
-            field = field.strip()
-            field_index += 1
-            if field == '':
-                continue
-            elif field == 'n/a':
-                field = 'N/A'
-            record.update({field_index:field})
-        processed_data.append(record)
-        # print(record)
-    
-    print(f"Processed {record_count} records")
-    return processed_data
