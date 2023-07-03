@@ -39,6 +39,8 @@ def validate_file(meta_data, specs, data):
             elif field == None:
                 errors.update({keyVar: f"{check_name} must have a value or N/A."})
                 continue
+            # elif field == "N/A" and check_name == "athleticMember":
+            #     errors.update({keyVar: f"{check_name} muZZZZZZZZZZZZZZZ"})
             
 
             # Cleaning data up

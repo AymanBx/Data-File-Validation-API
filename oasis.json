@@ -15,63 +15,72 @@
 				"index": 1,
 				"parameter": "key",
 				"type": "string",
-				"maxLength": "15"
+				"maxLength": "15",
+				"required": false
 			},
 
 			{
 				"index": 2,
 				"parameter": "username",
 				"type": "string",
-				"maxLength": "50"
+				"maxLength": "50",
+				"required": false
 			},
 
 			{
 				"index": 4,
 				"parameter": "preferredName",
 				"type": "sString",
-				"maxLength": "50"
+				"maxLength": "50",
+				"required": false
 			},
 
 			{
 				"index": 5,
 				"parameter": "middleName",
 				"type": "sString",
-				"maxLength": "50"
+				"maxLength": "50",
+				"required": false
 			},
 
 			{
 				"index": 6,
 				"parameter": "preferredLastName",
 				"type": "sString",
-				"maxLength": "50"
+				"maxLength": "50",
+				"required": false
 			},
 
 			{
 				"index": 7,
 				"parameter": "firstName",
 				"type": "string",
-				"maxLength": "50"
+				"maxLength": "50",
+				"required": false
 			},
 
 			{
 				"index": 8,
 				"parameter": "lastName",
 				"type": "string",
-				"maxLength": "50"
+				"maxLength": "50",
+				"required": false
 			},
 
 			{
 				"index": 9,
 				"parameter": "email",
 				"type": "email",
-				"maxLength": "50"
+				"maxLength": "50",
+				"required": false
 			},
 
 			{
 				"index": 10,
 				"parameter": "gender",
 				"type": "gender",
-				"maxLength": "30"
+				"maxLength": "30",
+				"required": false
 			}
 
 				

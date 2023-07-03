@@ -53,7 +53,7 @@ if len(errors.keys()) > 0:
 
 # Create a new output file
 with open("out.json", 'w') as output:
-    if outformatted_content:
+    if len(errors.keys()) > 0:
         output.write("[\n")
         output.write(outformatted_content)
         output.write("\n]")

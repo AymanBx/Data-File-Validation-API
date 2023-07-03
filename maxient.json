@@ -31,7 +31,7 @@
 				"index": 4,
 				"parameter": "firstName",
 
-				"type": "sString",
+				"type": "string",
 				"maxLength": "50",
 				"required": false
 			},
@@ -39,7 +39,7 @@
 			{
 				"index": 5,
 				"parameter": "middleInit",
-				"type": "sString",
+				"type": "string",
 				"maxLength": "50",
 				"required": false
 			},
@@ -118,15 +118,15 @@
 			},
 
 			{
-				"index": 30,
+				"index": 31,
 				"parameter": "athleticMember",
-				"type": "string",
+				"type": "sString",
 				"maxLength": "50",
 				"required": true
 			},
 
 			{
-				"index": 31,
+				"index": 32,
 				"parameter": "greekMember",
 				"type": "string",
 				"maxLength": "50",
@@ -134,7 +134,7 @@
 			},
 
 			{
-				"index": 32,
+				"index": 33,
 				"parameter": "honorsMember",
 				"type": "string",
 				"maxLength": "20",
@@ -142,7 +142,7 @@
 			},
 
 			{
-				"index": 33,
+				"index": 34,
 				"parameter": "ROTC/veteranMember",
 				"type": "string",
 				"maxLength": "20",
