@@ -24,7 +24,7 @@ print(f"spec file: {spec_file}\n")
 
 # Check that input files exist and are of the correct types
 if (not os.path.exists(data_file)) or (not os.path.exists(spec_file)) :
-    print("One of the files doesn't exist----hint: could be a typo in the file name.")
+    print("One of the files doesn't exist----hint: could be a typo in the file name.\n\n", usage_statement)
     exit(0)
 
 if not spec_file.endswith(".json"):

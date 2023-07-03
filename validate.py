@@ -2,25 +2,37 @@ from datetime import datetime, date
 
 date_format = "%Y-%m-%d"
 errors = {}
+keys = []
+errors
 
 def validate_file(meta_data, specs, data): 
     # Validate data
-    # !!! Need to make it more abstract in validating different specs
     print("\n\nIN VALIDATION")
 
+    # Extract meta data
     xx_email = meta_data[2]
     brown_email = meta_data[3]
     strict_email = meta_data[4]
     symbols = meta_data[5]
+
+    ####### FIND A NEW KEY FOR THE ERRORS DICT          !!!!!!!!!!!!!!!!!!!!
+    ####### OR POSSIBLY MAKE THE ERROR MESSAGE A TUPLE  !!!!!!!!!!!!!!!!!!!!
+
+    # Iterate over the records one by one
     for num, record in enumerate(data):
-        # print(record)
-        # Get the brown ID and check it exists
+        # Get the Primary identifier and check it exists
+        record_num = f"#{num}"
         keyVar = record.get(1)
+        if not keyVar in keys:
+            keys.append(keyVar)
+        else:
+            errors.update({record_num: f"Record id[{keyVar}] is repeated."})
         if keyVar == None:
-            keyVar = f"#{num}"
-            errors.update({f"#{num}": f"Record #{num} is missing primary key."})
+            keyVar = "MISSING"
+            errors.update({record_num: f"Record #{num} is missing primary key."})
             # continue
 
+        #### STOPED READING HERE 07/03/23
 
         for param in specs.keys():
             # Get the data value to be validated
@@ -38,9 +50,7 @@ def validate_file(meta_data, specs, data):
             elif field == None:
                 errors.update({keyVar: f"{check_name} must have a value or N/A."})
                 continue
-            # elif field == "N/A" and check_name == "athleticMember":
-            #     errors.update({keyVar: f"{check_name} muZZZZZZZZZZZZZZZ"})
-            
+                        
 
             # Cleaning data up
             # Remove dash from zip code

@@ -24,7 +24,7 @@
 				"parameter": "username",
 				"type": "string",
 				"maxLength": "30",
-				"required": false
+				"required": true
 			},
 
 			{
