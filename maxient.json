@@ -118,14 +118,6 @@
 			},
 
 			{
-				"index": 36,
-				"parameter": "academicUnit",
-				"type": "string",
-				"maxLength": "50",
-				"required": false
-			},
-
-			{
 				"index": 30,
 				"parameter": "athleticMember",
 				"type": "string",
