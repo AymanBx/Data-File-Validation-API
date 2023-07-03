@@ -3,16 +3,17 @@
         "format": "delimited records",
 		"delimiter": "|",
 		"data file type": "txt",
-		"email xx surround": true,
-		"emails": ["brown.edu", "alum.brown.edu", "gtest.brown.edu"],
-		"allowed symbols": ["'", "`"]
+		"xx email": true,
+		"brown email": false,
+		"strict email": false,
+		"allowed symbols": ["'", "+", ".", "`", "_", "-"]
 	},
 
 	{
 		"parameters": [
 			{
 				"index": 1,
-				"parameter": "brownId",
+				"parameter": "BrownId",
 				"type": "int",
 				"maxLength": "15"
 			},
@@ -27,21 +28,21 @@
 			{
 				"index": 4,
 				"parameter": "firstName",
-				"type": "sString",
+				"type": "string",
 				"maxLength": "50"
 			},
 
 			{
 				"index": 5,
 				"parameter": "middleInit",
-				"type": "sString",
-				"maxLength": "1"
+				"type": "string",
+				"maxLength": "50"
 			},
 
 			{
 				"index": 3,
 				"parameter": "lastName",
-				"type": "sString",
+				"type": "string",
 				"maxLength": "50"
 			},
 
@@ -76,7 +77,7 @@
 			{
 				"index": 15,
 				"parameter": "localZip",
-				"type": "lInt",
+				"type": "zip",
 				"maxLength": "10"
 			},
 
@@ -84,8 +85,14 @@
 				"index": 7,
 				"parameter": "dob",
 				"type": "date",
-				"maxLength": "10",
-				"format": ""
+				"maxLength": "10"
+			},
+
+			{
+				"index": 8,
+				"parameter": "gender",
+				"type": "gender",
+				"maxLength": 30
 			},
 
 			{
