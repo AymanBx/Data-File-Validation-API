@@ -4,14 +4,7 @@ from datetime import datetime, date
 date_format = "%Y-%m-%d"
 errors = {}
 
-def validate_file(data_file, spec_file):
-    # Read the spec file
-    delimiter, specs = read_specs(spec_file)
-    print("delimiter:", delimiter, "\n")
-    
-    # Read the data file
-    data = read_data(data_file, delimiter)
-   
+def validate_file(specs, data): 
     # Validate data
     # !!! Need to make it more abstract in validating different specs
     print("\n\nIN VALIDATION")

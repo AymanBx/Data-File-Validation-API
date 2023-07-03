@@ -1,10 +1,12 @@
 import sys
 import os
 import json
+from read_specs import read_specs
+from validate import read_data
 from validate import validate_file
 
 # Usage statment can be printed to user in case of an error in passing arguments
-usage_statement = "Usage\n\tmain.py <DataFile Name> <SpecFile Name>\n"
+usage_statement = "Usage\n\tmain.py <DataFile Name>.txt(or.csv) <SpecFile Name>.json\n"
 
 # Check that the correct number of arguments was provided
 if len(sys.argv) != 3:
@@ -25,19 +27,23 @@ if (not os.path.exists(data_file)) or (not os.path.exists(spec_file)) :
     print("One of the files doesn't exist----hint: could be a typo in the file name.")
     exit(0)
 
-if ((not data_file.endswith(".txt")) or (not spec_file.endswith(".json"))):
-    print("One of the files' type doesn't meet the specs of this program.")
+if not spec_file.endswith(".json"):
+    print("Spec file needs to be a json file.\n\n", usage_statement)
     exit(0)
 
+# Read the spec file
+data_file_type, delimiter, specs = read_specs(spec_file)
+print("delimiter:", delimiter, "\n")
 
-# Read data file specs
-# delimiter, specs = read_specs(spec_file)
-# for spec in specs.values():
-#     print(spec)
-# print("specs read success\n")
+if not data_file.endswith(f".{data_file_type}"):
+    print(f"Data file needs to be a {data_file_type} file.\n\n{usage_statement}")
+    exit(0)
+
+# Read the data file
+data = read_data(data_file, delimiter)
 
 # Validate data
-errors = validate_file(data_file, spec_file)
+errors = validate_file(specs, data)
 print("Validation complete!\n")
 
 if len(errors.keys()) > 0:

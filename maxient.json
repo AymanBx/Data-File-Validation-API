@@ -1,7 +1,11 @@
 [
 	{
         "format": "delimited records",
-		"delimiter": "|"
+		"delimiter": "|",
+		"data file type": "txt",
+		"email xx surround": true,
+		"emails": ["brown.edu", "alum.brown.edu", "gtest.brown.edu"],
+		"allowed symbols": ["'", "`"]
 	},
 
 	{

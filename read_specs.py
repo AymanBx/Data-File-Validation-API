@@ -13,6 +13,10 @@ def read_specs(json_file):
         print("I don't know how deal to with these records yet!")
         exit(0)
     
+    data_file_type = specs[0]['data file type']
+    if data_file_type == "text":
+        data_file_type = "txt"
+    
     # Get the number of parameters
     columns = specs[1]['parameters']
     parameters_count = len(columns)
@@ -33,6 +37,6 @@ def read_specs(json_file):
         parameter_length = int(param['maxLength'])
         parameters.update({parameter_index:[parameter_name, parameter_type, parameter_length]})
     
-    return delimiter, parameters
+    return data_file_type, delimiter, parameters
 
    
