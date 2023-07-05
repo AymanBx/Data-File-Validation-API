@@ -46,7 +46,7 @@ def validate_file(meta_data, specs, data):
             if field == None and not required:
                 continue
             elif field == None:
-                errors.append({keyVar, f"Line:{record_num}: {check_name} must have a value or N/A."})
+                errors.append((keyVar, f"Line:{record_num}: {check_name} must have a value or N/A."))
                 continue
                         
 
