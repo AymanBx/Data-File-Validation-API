@@ -1,6 +1,5 @@
 from datetime import datetime, date
 
-date_format = "%Y-%m-%d"
 errors = []
 keys = []
 errors
@@ -11,10 +10,12 @@ def validate_file(meta_data, specs, data):
 
     # Extract meta data
     primary_key = meta_data[2]
-    xx_email = meta_data[3]
-    brown_email = meta_data[4]
-    strict_email = meta_data[5]
-    symbols = meta_data[6]
+    repeated = meta_data[3]
+    date_format = meta_data[4]
+    xx_email = meta_data[5]
+    brown_email = meta_data[6]
+    strict_email = meta_data[7]
+    symbols = meta_data[8]
     
 
 
@@ -25,7 +26,7 @@ def validate_file(meta_data, specs, data):
         keyVar = record.get(primary_key)
         if not keyVar in keys:
             keys.append(keyVar)
-        else:
+        elif keyVar in keys and not repeated:
             errors.append((keyVar, f"Line:{record_num}: Record is repeated."))
         if keyVar == None:
             keyVar = record_num

@@ -17,11 +17,13 @@ def read_specs(json_file):
     if data_file_type == "text":
         data_file_type = "txt"
     primary_key = specs[0]['column_identifier']
+    repeated = specs[0]['repeated_records']
+    date_format = specs[0]['date_format']
     xx_email = specs[0]['xx email']
     brown_email = specs[0]['brown email']
     strict_email = specs[0]['strict email']
     symbols = specs[0]['allowed symbols']
-    meta_data = [delimiter, data_file_type, primary_key, xx_email, brown_email, strict_email, symbols]
+    meta_data = [delimiter, data_file_type, primary_key, repeated, date_format, xx_email, brown_email, strict_email, symbols]
     
     # Get the number of parameters
     columns = specs[1]['parameters']
