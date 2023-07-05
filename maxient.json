@@ -31,7 +31,7 @@
 				"index": 4,
 				"parameter": "firstName",
 
-				"type": "string",
+				"type": "sString",
 				"maxLength": "50",
 				"required": false
 			},
@@ -39,7 +39,7 @@
 			{
 				"index": 5,
 				"parameter": "middleInit",
-				"type": "string",
+				"type": "sString",
 				"maxLength": "50",
 				"required": false
 			},
@@ -47,7 +47,7 @@
 			{
 				"index": 3,
 				"parameter": "lastName",
-				"type": "string",
+				"type": "sString",
 				"maxLength": "50",
 				"required": false
 

@@ -48,12 +48,12 @@ data = read_data(data_file, delimiter)
 errors = validate_file(meta_data, specs, data)
 print("Validation complete!\n")
 
-if len(errors.keys()) > 0:
-        outformatted_content = ",\n".join(["\t" + json.dumps({k: v}) for k, v in errors.items()])
+if len(errors) > 0:
+        outformatted_content = ",\n".join(["\t" + json.dumps({k: v}) for k, v in errors])
 
 # Create a new output file
 with open("out.json", 'w') as output:
-    if len(errors.keys()) > 0:
+    if len(errors) > 0:
         output.write("[\n")
         output.write(outformatted_content)
         output.write("\n]")
