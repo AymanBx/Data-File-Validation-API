@@ -1,0 +1,93 @@
+[
+	{
+        "format": "delimited records",
+		"delimiter": ",",
+		"data file type": "csv",
+		"column_identifier": 1,
+		"repeated_records": true,
+		"date_format": "%Y-%m-%d",
+		"xx email": false,
+		"brown email": true,
+		"strict email": false,
+		"allowed symbols": ["'", "+", ".", "`", "_", "-", "@"]
+	},
+
+	{
+		"parameters": [
+			{
+				"index": 1,
+				"parameter": "key",
+				"type": "string",
+				"maxLength": "15",
+				"required": false
+			},
+
+			{
+				"index": 2,
+				"parameter": "username",
+				"type": "string",
+				"maxLength": "50",
+				"required": false
+			},
+
+			{
+				"index": 4,
+				"parameter": "preferredName",
+				"type": "sString",
+				"maxLength": "50",
+				"required": false
+			},
+
+			{
+				"index": 5,
+				"parameter": "middleName",
+				"type": "sString",
+				"maxLength": "50",
+				"required": false
+			},
+
+			{
+				"index": 6,
+				"parameter": "preferredLastName",
+				"type": "sString",
+				"maxLength": "50",
+				"required": false
+			},
+
+			{
+				"index": 7,
+				"parameter": "firstName",
+				"type": "string",
+				"maxLength": "50",
+				"required": false
+			},
+
+			{
+				"index": 8,
+				"parameter": "lastName",
+				"type": "string",
+				"maxLength": "50",
+				"required": false
+			},
+
+			{
+				"index": 9,
+				"parameter": "email",
+				"type": "email",
+				"maxLength": "50",
+				"required": false
+			},
+
+			{
+				"index": 10,
+				"parameter": "gender",
+				"type": "gender",
+				"maxLength": "30",
+				"required": false
+			}
+
+				
+		]
+	}
+
+]
