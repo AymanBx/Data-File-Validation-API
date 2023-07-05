@@ -3,6 +3,7 @@
         "format": "delimited records",
 		"delimiter": "|",
 		"data file type": "txt",
+		"column_identifier": 1,
 		"xx email": true,
 		"brown email": false,
 		"strict email": false,

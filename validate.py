@@ -10,17 +10,19 @@ def validate_file(meta_data, specs, data):
     print("\n\nIN VALIDATION")
 
     # Extract meta data
-    xx_email = meta_data[2]
-    brown_email = meta_data[3]
-    strict_email = meta_data[4]
-    symbols = meta_data[5]
+    primary_key = meta_data[2]
+    xx_email = meta_data[3]
+    brown_email = meta_data[4]
+    strict_email = meta_data[5]
+    symbols = meta_data[6]
+    
 
 
     # Iterate over the records one by one
     for num, record in enumerate(data):
         # Get the Primary identifier and check it exists
         record_num = f"#{num}"
-        keyVar = record.get(1)
+        keyVar = record.get(primary_key)
         if not keyVar in keys:
             keys.append(keyVar)
         else:

@@ -7,21 +7,21 @@ def read_specs(json_file):
         specs = json.load(spec_file)
 
     # Check the format
-    if specs[0]['format'] == "delimited records":
-        delimiter = specs[0]['delimiter']
-    else:
+    if specs[0]['format'] != "delimited records":
         print("I don't know how deal to with these records yet!")
         exit(0)
     
     # Extract data-file meta data:
+    delimiter = specs[0]['delimiter']
     data_file_type = specs[0]['data file type']
     if data_file_type == "text":
         data_file_type = "txt"
+    primary_key = specs[0]['column_identifier']
     xx_email = specs[0]['xx email']
     brown_email = specs[0]['brown email']
     strict_email = specs[0]['strict email']
     symbols = specs[0]['allowed symbols']
-    meta_data = [delimiter, data_file_type, xx_email, brown_email, strict_email, symbols]
+    meta_data = [delimiter, data_file_type, primary_key, xx_email, brown_email, strict_email, symbols]
     
     # Get the number of parameters
     columns = specs[1]['parameters']
