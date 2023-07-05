@@ -24,12 +24,13 @@ def validate_file(meta_data, specs, data):
         if not keyVar in keys:
             keys.append(keyVar)
         else:
-            errors.append((record_num, f"Record id[{keyVar}] is repeated."))
+            errors.append((keyVar, f"Line:{record_num}: Record is repeated."))
         if keyVar == None:
             keyVar = record_num
-            errors.append((record_num, f"Record {record_num} is missing primary key."))
+            errors.append((record_num, f"Line:{record_num}: Record {record_num} is missing primary key."))
             # continue
 
+        #### STOPED READING HERE 07/03/23
 
         for param in specs.keys():
             # Get the data value to be validated
@@ -45,7 +46,7 @@ def validate_file(meta_data, specs, data):
             if field == None and not required:
                 continue
             elif field == None:
-                errors.append({keyVar, f"{check_name} must have a value or N/A."})
+                errors.append({keyVar, f"Line:{record_num}: {check_name} must have a value or N/A."})
                 continue
                         
 
@@ -71,44 +72,44 @@ def validate_file(meta_data, specs, data):
                 try:
                     int(field)
                 except ValueError:
-                    errors.append((keyVar, f"{check_name} value isn't all digits."))
+                    errors.append((keyVar, f"Line:{record_num}: {check_name} value isn't all digits."))
 
             # Check: date value is in correct format
             elif check_type == date:
                 try:
                     datetime.strptime(field, date_format)
                 except ValueError:
-                    errors.append((keyVar, f"{check_name} value is not in correct date format."))
+                    errors.append((keyVar, f"Line:{record_num}: {check_name} value is not in correct date format."))
             
             # Check: string variable isn't all digits
             elif check_type == str and check_type == "email":
                 try:
                     int(field)
-                    errors.append((keyVar, f"{check_name} value can't be all digits."))
+                    errors.append((keyVar, f"Line:{record_num}: {check_name} value can't be all digits."))
                 except ValueError:
                     True      
             
             # Check: strict strings don't have digits or weird symbols in them
             elif check_type == "sString":
                 if any((char.isdigit() or char =='$') for char in field):
-                    errors.append((keyVar, f"{check_name} value can't have digits in it."))
+                    errors.append((keyVar, f"Line:{record_num}: {check_name} value can't have digits in it."))
             
             # Check: emails are valid - brown/non-brown emails
             if check_type == "email":
                 if  not xx_email and field.startswith("xx") and field.endswith("xx"):
                     errors.append((keyVar, f"{check_name} must be a valid email."))
                 if brown_email and not field.endswith("brown.edu"):
-                    errors.append((keyVar, f"{check_name} value must be a valid Brown email."))
+                    errors.append((keyVar, f"Line:{record_num}: {check_name} value must be a valid Brown email."))
                 for char in field:
                     if strict_email and not char.isalpha() and not char.isdigit():
-                        errors.append((keyVar, f"{check_name} value can't have weird symbols in it."))
+                        errors.append((keyVar, f"Line:{record_num}: {check_name} value can't have weird symbols in it."))
             # else:
                 # print("SO,", record.get(param), "passed type test!")
 
             
             # Length check
             if len(str(field)) > check_len:
-                errors.append((keyVar, f"{check_name} value has failed the length test!"))
+                errors.append((keyVar, f"Line:{record_num}: {check_name} value has failed the length test!"))
             # else:
                 # print("SO,", record.get(param), "passed length test!")
 
