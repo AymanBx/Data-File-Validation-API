@@ -18,12 +18,7 @@ def read_specs(json_file):
         data_file_type = "txt"
     primary_key = specs[0]['column_identifier']
     repeated = specs[0]['repeated_records']
-    date_format = specs[0]['date_format']
-    xx_email = specs[0]['xx email']
-    brown_email = specs[0]['brown email']
-    strict_email = specs[0]['strict email']
-    symbols = specs[0]['allowed symbols']
-    meta_data = [delimiter, data_file_type, primary_key, repeated, date_format, xx_email, brown_email, strict_email, symbols]
+    meta_data = [delimiter, data_file_type, primary_key, repeated]
     
     # Get the number of parameters
     columns = specs[1]['parameters']
@@ -36,6 +31,7 @@ def read_specs(json_file):
         parameter_index = param['index']
         parameter_name = param['parameter']
         parameter_type = param['type']
+        # Set parameter type
         if parameter_type == "string" or parameter_type == "str":
             parameter_type = str
         elif parameter_type == "num" or parameter_type == "number" or parameter_type == "int":
@@ -44,13 +40,23 @@ def read_specs(json_file):
             parameter_type = date
         parameter_length = int(param['maxLength'])
         parameter_required = param['required']
-        parameters.update({parameter_index:[parameter_name, parameter_type, parameter_length, parameter_required]})
+        # Read detailed parameter conditions
+        if parameter_type == "email" and len(param) > 5:
+            xx_email = param['xx email']
+            brown_email = param['brown email']
+            strict_email = param['strict email']
+            symbols = param['allowed symbols']
+            parameters.update({parameter_index:[parameter_name, parameter_type, parameter_length, parameter_required, xx_email, brown_email, strict_email, symbols]})
+        elif parameter_type == date:
+            date_format = param['date_format']
+            parameters.update({parameter_index:[parameter_name, parameter_type, parameter_length, parameter_required, date_format]})
+        else:
+            parameters.update({parameter_index:[parameter_name, parameter_type, parameter_length, parameter_required]})
     
     return meta_data, parameters
 
 
 def read_data(data_file, delimiter):
-    # !!! Might want  to change processed data to a list now (((Done)))
     processed_data = []
     with open(data_file, 'r') as file:
         raw_data = file.read()
