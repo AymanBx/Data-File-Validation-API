@@ -18,8 +18,8 @@ data_file = sys.argv[1]
 spec_file = sys.argv[2]
 
 # print("files:", len(sys.argv)-1)
-print(f"data file: {data_file}")
-print(f"spec file: {spec_file}\n")
+# print(f"data file: {data_file}")
+# print(f"spec file: {spec_file}\n")
  
 
 # Check that input files exist and are of the correct types
@@ -35,7 +35,7 @@ if not spec_file.endswith(".json"):
 meta_data, specs = read_specs(spec_file)
 delimiter = meta_data[0]
 data_file_type = meta_data[1]
-print("delimiter:", delimiter, "\n")
+# print("delimiter:", delimiter, "\n")
 
 if not data_file.endswith(f".{data_file_type}"):
     print(f"Data file needs to be a {data_file_type} file.\n\n{usage_statement}")

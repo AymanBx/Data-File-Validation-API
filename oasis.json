@@ -75,7 +75,11 @@
 				"parameter": "email",
 				"type": "email",
 				"maxLength": "50",
-				"required": false
+				"required": false,
+				"xx email": false,
+				"brown email": true,
+				"strict email": false,
+				"allowed symbols": ["'", "+", ".", "`", "_", "-", "@"]
 			},
 
 			{

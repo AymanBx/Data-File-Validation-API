@@ -11,7 +11,7 @@ def read_specs(json_file):
         print("I don't know how deal to with these records yet!")
         exit(0)
     
-    # Extract data-file meta data:
+    # Extract spec-file meta data:
     delimiter = specs[0]['delimiter']
     data_file_type = specs[0]['data file type']
     if data_file_type == "text":
@@ -36,7 +36,6 @@ def read_specs(json_file):
         parameter_index = param['index']
         parameter_name = param['parameter']
         parameter_type = param['type']
-        parameter_required = param['required']
         if parameter_type == "string" or parameter_type == "str":
             parameter_type = str
         elif parameter_type == "num" or parameter_type == "number" or parameter_type == "int":
@@ -44,6 +43,7 @@ def read_specs(json_file):
         elif parameter_type == "date":
             parameter_type = date
         parameter_length = int(param['maxLength'])
+        parameter_required = param['required']
         parameters.update({parameter_index:[parameter_name, parameter_type, parameter_length, parameter_required]})
     
     return meta_data, parameters
