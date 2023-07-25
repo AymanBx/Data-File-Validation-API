@@ -4,12 +4,7 @@
 		"delimiter": ",",
 		"data file type": "csv",
 		"column_identifier": 1,
-		"repeated_records": true,
-		"date_format": "%Y-%m-%d",
-		"xx email": false,
-		"brown email": true,
-		"strict email": false,
-		"allowed symbols": ["'", "+", ".", "`", "_", "-", "@"]
+		"repeated_records": true
 	},
 
 	{

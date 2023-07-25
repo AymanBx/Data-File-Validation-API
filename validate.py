@@ -32,12 +32,24 @@ def validate_file(meta_data, specs, data):
         for param in specs.keys():
             # Get the data value to be validated
             field :str = record.get(param)
+            # Get the specs of this field
+            field_specs = specs.get(param)
             
             # Get the checks for this field
-            check_name = specs.get(param)[0]
-            check_type = specs.get(param)[1]
-            check_len = specs.get(param)[2]
-            required = specs.get(param)[3]
+            check_name = field_specs[0]
+            check_type = field_specs[1]
+            check_len = field_specs[2]
+            required = field_specs[3]
+
+            # Get extra checks for specific fields
+            if check_type == "email" and len(specs.get(param)) > 4:
+                xx_email = field_specs[4]
+                brown_email = field_specs[5]
+                strict_email = field_specs[6]
+                symbols = field_specs[7]
+            if check_type == date and len(specs.get(param)) > 4:
+                date_format = field_specs[4]
+
 
             # Skip empty not required fields
             if field == None and not required:
@@ -45,12 +57,6 @@ def validate_file(meta_data, specs, data):
             elif field == None:
                 errors.append((keyVar, f"{record_num}: {check_name} must have a value or N/A."))
                 continue
-                        
-            if check_type == "email" and len(specs.get(param)) > 4:
-                xx_email = specs.get(param)[4]
-                brown_email = specs.get(param)[5]
-                strict_email = specs.get(param)[6]
-                symbols = specs.get(param)[7]
             
 
             # Cleaning data up
@@ -79,7 +85,6 @@ def validate_file(meta_data, specs, data):
 
             # Check: date value is in correct format
             elif check_type == date:
-                date_format = specs.get(param)[4]
                 try:
                     datetime.strptime(field, date_format)
                 except ValueError:
@@ -97,6 +102,7 @@ def validate_file(meta_data, specs, data):
             elif check_type == "sString":
                 if any((char.isdigit() or char =='$') for char in field):
                     errors.append((keyVar, f"{record_num}: {check_name} value can't have digits in it."))
+                    break
             
             # Check: emails are valid - brown/non-brown emails
             if check_type == "email":
