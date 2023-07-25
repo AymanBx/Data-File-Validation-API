@@ -101,7 +101,8 @@
 				"parameter": "dob",
 				"type": "date",
 				"maxLength": "10",
-				"required": false
+				"required": false,
+				"date_format": "%Y-%m-%d"
 			},
 
 			{
@@ -117,7 +118,11 @@
 				"parameter": "email",
 				"type": "email",
 				"maxLength": "100",
-				"required": false
+				"required": false,
+				"xx email": true,
+				"brown email": false,
+				"strict email": false,
+				"allowed symbols": ["'", "+", ".", "`", "_", "-"]
 			},
 
 			{

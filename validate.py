@@ -11,11 +11,6 @@ def validate_file(meta_data, specs, data):
     # Extract meta data
     primary_key = meta_data[2]
     repeated = meta_data[3]
-    date_format = meta_data[4]
-    xx_email = meta_data[5]
-    brown_email = meta_data[6]
-    strict_email = meta_data[7]
-    symbols = meta_data[8]
     
 
 
@@ -33,7 +28,6 @@ def validate_file(meta_data, specs, data):
             errors.append((record_num, f"{record_num}: Record {record_num} is missing primary key."))
             # continue
 
-        #### STOPED READING HERE 07/03/23
 
         for param in specs.keys():
             # Get the data value to be validated
@@ -52,6 +46,12 @@ def validate_file(meta_data, specs, data):
                 errors.append((keyVar, f"{record_num}: {check_name} must have a value or N/A."))
                 continue
                         
+            if check_type == "email" and len(specs.get(param)) > 4:
+                xx_email = specs.get(param)[4]
+                brown_email = specs.get(param)[5]
+                strict_email = specs.get(param)[6]
+                symbols = specs.get(param)[7]
+            
 
             # Cleaning data up
             # Remove dash from zip code
@@ -79,6 +79,7 @@ def validate_file(meta_data, specs, data):
 
             # Check: date value is in correct format
             elif check_type == date:
+                date_format = specs.get(param)[4]
                 try:
                     datetime.strptime(field, date_format)
                 except ValueError:
