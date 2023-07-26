@@ -2,7 +2,7 @@
 	{
         "format": "delimited records",
 		"delimiter": ",",
-		"data file type": "csv",
+		"data_file_type": "csv",
 		"column_identifier": 1,
 		"repeated_records": true
 	},
@@ -71,10 +71,10 @@
 				"type": "email",
 				"maxLength": "50",
 				"required": false,
-				"xx email": false,
-				"brown email": true,
-				"strict email": false,
-				"allowed symbols": ["'", "+", ".", "`", "_", "-", "@"]
+				"xx_email": false,
+				"brown_email": true,
+				"strict_email": false,
+				"allowed_symbols": ["'", "+", ".", "`", "_", "-", "@"]
 			},
 
 			{

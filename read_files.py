@@ -13,7 +13,7 @@ def read_specs(json_file):
     
     # Extract spec-file meta data:
     delimiter = specs[0]['delimiter']
-    data_file_type = specs[0]['data file type']
+    data_file_type = specs[0]['data_file_type']
     if data_file_type == "text":
         data_file_type = "txt"
     primary_key = specs[0]['column_identifier']
@@ -42,10 +42,10 @@ def read_specs(json_file):
         parameter_required = param['required']
         # Read detailed parameter conditions
         if parameter_type == "email" and len(param) > 5:
-            xx_email = param['xx email']
-            brown_email = param['brown email']
-            strict_email = param['strict email']
-            symbols = param['allowed symbols']
+            xx_email = param['xx_email']
+            brown_email = param['brown_email']
+            strict_email = param['strict_email']
+            symbols = param['allowed_symbols']
             parameters.update({parameter_index:[parameter_name, parameter_type, parameter_length, parameter_required, xx_email, brown_email, strict_email, symbols]})
         elif parameter_type == date:
             date_format = param['date_format']

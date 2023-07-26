@@ -2,7 +2,7 @@
 	{
         "format": "delimited records",
 		"delimiter": "|",
-		"data file type": "txt",
+		"data_file_type": "txt",
 		"column_identifier": 1,
 		"repeated_records": true
 	},
@@ -114,10 +114,10 @@
 				"type": "email",
 				"maxLength": "100",
 				"required": false,
-				"xx email": true,
-				"brown email": false,
-				"strict email": false,
-				"allowed symbols": ["'", "+", ".", "`", "_", "-"]
+				"xx_email": true,
+				"brown_email": false,
+				"strict_email": false,
+				"allowed_symbols": ["'", "+", ".", "`", "_", "-"]
 			},
 
 			{
